@@ -6,4 +6,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  def get_image
+    if image.attached?
+      image
+    else
+      'default-image.jpg'
+    end
+  end
 end
